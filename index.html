@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 新手操作筆記</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Git 新手操作筆記：從本機專案上傳到 GitHub</h1>
+
+    <h2>1. 初始化本地 Git 儲存庫</h2>
+    <pre>git init</pre>
+
+    <h2>2. 設定 Git 使用者資訊（只需設定一次）</h2>
+    <pre>
+git config --global user.name "你的名字"
+git config --global user.email "你的Email"
+    </pre>
+
+    <h2>3. 把檔案加入 Git 追蹤</h2>
+    <pre>git add .</pre>
+
+    <h2>4. 建立第一次 commit</h2>
+    <pre>git commit -m "建立一頁式網頁"</pre>
+
+    <h2>5. 將 GitHub Repo 加入遠端來源</h2>
+    <pre>
+git remote add origin https://github.com/你的帳號/你的-repo.git
+    </pre>
+
+    <h2>6. 如果你的分支名稱是 `master`，改成 `main`（可選）</h2>
+    <pre>git branch -m main</pre>
+
+    <h2>7. 推送到 GitHub</h2>
+    <pre>git push -u origin main</pre>
+
+    <h2>之後的更新流程：</h2>
+    <pre>
+每次更新網頁後，只需重複這三個指令：
+git add .
+git commit -m "這次做了什麼改動"
+git push
+    </pre>
+
+    <h2>常見錯誤解決：</h2>
+    <table>
+        <tr>
+            <th>錯誤訊息</th>
+            <th>解法</th>
+        </tr>
+        <tr>
+            <td>'git' 不是內部或外部指令</td>
+            <td>沒有安裝 Git，先從 git-scm.com 下載並安裝</td>
+        </tr>
+        <tr>
+            <td>src refspec main does not match any</td>
+            <td>本地分支名稱不是 main，改成 main 或推送 master</td>
+        </tr>
+        <tr>
+            <td>Author identity unknown</td>
+            <td>沒有設定 user.name 或 user.email，照第 2 步設定</td>
+        </tr>
+    </table>
+</body>
+
+</html>
